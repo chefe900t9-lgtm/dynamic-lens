@@ -408,12 +408,20 @@ const Index = () => {
                 Análise dinâmica de defeitos e incidentes
               </p>
             </div>
-            <Link to="/import">
-              <Button variant="outline" size="sm">
-                <Upload className="mr-2 h-4 w-4" />
-                Importar Dados
-              </Button>
-            </Link>
+            <div className="flex gap-2">
+              <Link to="/data-info">
+                <Button variant="outline" size="sm">
+                  <Database className="mr-2 h-4 w-4" />
+                  Info dos Dados
+                </Button>
+              </Link>
+              <Link to="/import">
+                <Button variant="outline" size="sm">
+                  <Upload className="mr-2 h-4 w-4" />
+                  Importar Dados
+                </Button>
+              </Link>
+            </div>
           </div>
           <div className="mt-4">
             <BreadcrumbNav items={
