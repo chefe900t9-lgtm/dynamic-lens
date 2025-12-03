@@ -4,6 +4,7 @@ import { DrillDownView } from "@/components/DrillDownView";
 import { FilterPanel } from "@/components/FilterPanel";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { RankingCard } from "@/components/RankingCard";
+import { ActiveFiltersDisplay } from "@/components/ActiveFiltersDisplay";
 import { useDefeitos } from "@/hooks/useDefeitos";
 import { Link } from "react-router-dom";
 import { 
@@ -435,7 +436,7 @@ const Index = () => {
 
       <div className="container mx-auto px-4 py-6">
         {/* Filtros no topo */}
-        <div className="mb-6">
+        <div className="mb-6 space-y-4">
           <FilterPanel
             regionals={regionals}
             ufs={ufs}
@@ -457,6 +458,18 @@ const Index = () => {
             onTipoReclamacaoChange={setSelectedTipoReclamacao}
             onDateChange={handleDateChange}
             onReset={resetFilters}
+          />
+          
+          <ActiveFiltersDisplay
+            regional={selectedRegional && selectedRegional !== "all" ? selectedRegional : undefined}
+            uf={selectedUF && selectedUF !== "all" ? selectedUF : undefined}
+            tecnologia={selectedTecnologia && selectedTecnologia !== "all" ? selectedTecnologia : undefined}
+            subcategoria={selectedSubcategoria && selectedSubcategoria !== "all" ? selectedSubcategoria : undefined}
+            tipoAcesso={selectedTipoAcesso && selectedTipoAcesso !== "all" ? selectedTipoAcesso : undefined}
+            tipoReclamacao={selectedTipoReclamacao && selectedTipoReclamacao !== "all" ? selectedTipoReclamacao : undefined}
+            dateFrom={dateFrom}
+            dateTo={dateTo}
+            totalRecords={filteredData.length}
           />
         </div>
 
